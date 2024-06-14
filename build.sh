@@ -4,13 +4,6 @@ script_path=$(cd $(dirname ${0}); pwd)
 cp -r ${script_path}/fastlane ./
 cp ${script_path}/Gemfile ./
 
-echo "Testflight_upload: ${TESTFLIGHT_UPLOAD}"
-echo "Build_pods: ${BUILD_PODS}"
-echo "Ios_App_Id: ${IOS_APP_ID}"
-echo "Apple Key Content: ${APPLE_KEY_CONTENT}"
-echo "Issuer Id: ${APPLE_KEY_ISSUER_ID}"
-echo "Apple Key Id: ${APPLE_KEY_ID}"
-
 bundle add fastlane --version ${FASTLANE_VERSION}
 
 if [[ $BROWSERSTACK_UPLOAD = true || $BUILD_PODS = true ]]; then
