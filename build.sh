@@ -7,6 +7,7 @@ cp ${script_path}/Gemfile ./
 echo "Testflight_upload: ${TESTFLIGHT_UPLOAD}"
 echo "Build_pods: ${BUILD_PODS}"
 echo "Ios_App_Id: ${IOS_APP_ID}"
+echo "Apple Key Content: ${APPLE_KEY_CONTENT}"
 
 bundle add fastlane --version ${FASTLANE_VERSION}
 
