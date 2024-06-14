@@ -4,6 +4,9 @@ script_path=$(cd $(dirname ${0}); pwd)
 cp -r ${script_path}/fastlane ./
 cp ${script_path}/Gemfile ./
 
+echo "Testflight_upload: ${TESTFLIGHT_UPLOAD}"
+echo "Build_pods: ${BUILD_PODS}"
+
 bundle add fastlane --version ${FASTLANE_VERSION}
 
 if [[ $BROWSERSTACK_UPLOAD = true || $BUILD_PODS = true ]]; then
