@@ -18,8 +18,6 @@ platform :ios do
         use_bundle_exec: false
       )
     end
-
-    update_fastlane
   end
 
   desc "Build"
