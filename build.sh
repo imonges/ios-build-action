@@ -12,11 +12,13 @@ fi
 
 bundle install
 
+bundle update fastlane
+
 # If the variable FASTLANE_ENV is set then run fastlane with the --env equal to the variable.
 if [ -n "${FASTLANE_ENV}" ]; then
     echo "Running fastlane with environment: ${FASTLANE_ENV}"
-    bundle exec fastlane --env ${FASTLANE_ENV} build
+    fastlane --env ${FASTLANE_ENV} build
 else
     echo "Running fastlane"
-    bundle exec fastlane build
+    fastlane build
 fi
