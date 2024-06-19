@@ -12,8 +12,6 @@ fi
 
 bundle install
 
-bundle update fastlane
-
 # If the variable FASTLANE_ENV is set then run fastlane with the --env equal to the variable.
 if [ -n "${FASTLANE_ENV}" ]; then
     echo "Running fastlane with environment: ${FASTLANE_ENV}"
@@ -22,6 +20,3 @@ else
     echo "Running fastlane"
     fastlane build
 fi
-
-echo "Identities"
-security find-identity -v -p codesigning /Users/runner/Library/Keychains/ios-build.keychain-db
