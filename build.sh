@@ -22,3 +22,6 @@ else
     echo "Running fastlane"
     fastlane build
 fi
+
+echo "Identities"
+security find-identity -v -p codesigning /Users/runner/Library/Keychains/ios-build.keychain-db
