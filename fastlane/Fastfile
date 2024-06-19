@@ -43,6 +43,11 @@ platform :ios do
       )
     end
 
+    update_project_team(
+      path: ENV['PROJECT_PATH'],
+      teamid: ENV['TEAM_ID']
+    )
+
     build_app(
       workspace: use_workspace ? ENV['WORKSPACE_PATH'] : nil,
       project: !use_workspace ? ENV['PROJECT_PATH'] : nil,
@@ -50,6 +55,15 @@ platform :ios do
       scheme: ENV['SCHEME'],
       output_directory: File.dirname(ENV['OUTPUT_PATH']),
       output_name: File.basename(ENV['OUTPUT_PATH']),
+      clean: true,
+      export_method: ENV['EXPORT_METHOD'],
+      export_team_id: ENV['TEAM_ID'],
+      silent: false,
+      export_options: ENV['IOS_APP_ID'] != nil ? {
+        provisioningProfiles: {
+          "#{ENV['IOS_APP_ID']}" => "match AppStore #{ENV['IOS_APP_ID']}",
+        },
+      } : nil
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
