@@ -29,6 +29,8 @@ platform :ios do
       in_house: false # optional but may be required if using match/sigh
     )
 
+    disable_automatic_code_signing(path: ENV['PROJECT_PATH'])
+
     use_workspace = !ENV['WORKSPACE_PATH'].empty?
     match(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key)
 
