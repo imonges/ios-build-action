@@ -53,8 +53,7 @@ platform :ios do
     update_project_provisioning(
       xcodeproj: ENV['PROJECT_PATH'],
       profile: ENV['sigh_com.bohemioart.agroerp_appstore_profile-path'],
-      build_configuration: ENV['CONFIGURATION'],
-      code_signing_identity: "iPhone Development"
+      build_configuration: ENV['CONFIGURATION']
     )
 
     build_app(
