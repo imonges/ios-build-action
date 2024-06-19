@@ -29,10 +29,28 @@ platform :ios do
       in_house: false # optional but may be required if using match/sigh
     )
 
+    use_workspace = !ENV['WORKSPACE_PATH'].empty?
     match(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key)
 
+    if ENV['INCREMENT_BUILD_NUMBER'] == 'true'
+      increment_build_number(
+        xcodeproj: ENV['PROJECT_PATH'],
+        build_number: (latest_testflight_build_number(
+          app_identifier: ENV["IOS_APP_ID"],
+          api_key: api_key,
+          team_name: ENV["TEAM_NAME"],
+        ) + 1).to_s,
+      )
+    end
+
+    update_project_team(
+      path: ENV['PROJECT_PATH'],
+      teamid: ENV['TEAM_ID']
+    )
+
     build_app(
-      workspace: ENV['WORKSPACE_PATH'],
+      workspace: use_workspace ? ENV['WORKSPACE_PATH'] : nil,
+      project: !use_workspace ? ENV['PROJECT_PATH'] : nil,
       configuration: ENV['CONFIGURATION'],
       scheme: ENV['SCHEME'],
       output_directory: File.dirname(ENV['OUTPUT_PATH']),
