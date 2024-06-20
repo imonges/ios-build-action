@@ -83,7 +83,19 @@ platform :ios do
       skip_metadata: true,
       skip_screenshots: true,
       metadata_path: ENV["METADATA_PATH"],
-      precheck_include_in_app_purchases: false
+      precheck_include_in_app_purchases: false,
+      submission_information: {
+        export_compliance_platform: 'ios',
+        export_compliance_uses_encryption: true,
+        export_compliance_is_exempt: true,
+
+        export_compliance_compliance_required: false,
+        export_compliance_encryption_updated: false,
+        export_compliance_app_type: nil,
+        export_compliance_contains_third_party_cryptography: false,
+        export_compliance_contains_proprietary_cryptography: false,
+        export_compliance_available_on_french_store: false
+    }
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
