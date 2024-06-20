@@ -80,6 +80,8 @@ platform :ios do
       submit_for_review: true,
       force: true,
       automatic_release: true,
+      skip_metadata: true,
+      skip_screenshots: true,
       metadata_path: ENV["METADATA_PATH"]
     )
 
