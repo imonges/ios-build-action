@@ -98,6 +98,9 @@ inputs:
   ios-app-id:
     description: "The iOS application identifier; useful to sync a specific provisioning profile"
     required: false
+  metadata-path:
+    description: "The metadata path for appstore publish"
+    required: true
 runs:
   using: "node16"
   main: "dist/index.js"
