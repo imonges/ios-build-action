@@ -80,7 +80,6 @@ platform :ios do
       submit_for_review: true,
       force: true,
       automatic_release: true,
-      reject_build_waiting_for_review: true,
       metadata_path: ENV["METADATA_PATH"]
     )
 
@@ -99,6 +98,7 @@ platform :ios do
         app_identifier: ENV['IOS_APP_ID'],
         team_name: ENV['TEAM_NAME'],
         skip_waiting_for_build_processing: true,
+        reject_build_waiting_for_review: true,
         skip_submission: true,
       )
     end
