@@ -78,7 +78,8 @@ platform :ios do
 
     upload_to_app_store(
       submit_for_review: true,
-      force: true
+      force: true,
+      automatic_release: true
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
