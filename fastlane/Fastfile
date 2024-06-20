@@ -33,7 +33,7 @@ platform :ios do
 
     use_workspace = !ENV['WORKSPACE_PATH'].empty?
 
-    match_nuke(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key)
+    match_nuke(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key, skip_confirmation: true)
 
     match(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key, force: true)
 
