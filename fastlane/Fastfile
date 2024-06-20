@@ -32,6 +32,9 @@ platform :ios do
     disable_automatic_code_signing(path: ENV['PROJECT_PATH'])
 
     use_workspace = !ENV['WORKSPACE_PATH'].empty?
+
+    match_nuke(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key)
+
     match(type: ENV['MATCH_BUILD_TYPE'], api_key: api_key, force: true)
 
     if ENV['INCREMENT_BUILD_NUMBER'] == 'true'
@@ -50,11 +53,10 @@ platform :ios do
       teamid: ENV['TEAM_ID']
     )
 
-    update_project_provisioning(
-      xcodeproj: ENV['PROJECT_PATH'],
-      profile: ENV['sigh_' + ENV['IOS_APP_ID'] + '_' + ENV['MATCH_BUILD_TYPE'] + '_profile-path'],
-      build_configuration: ENV['CONFIGURATION'],
-      code_signing_identity: 'iPhone Distribution'
+    update_code_signing_settings(
+      profile_name: "match AppStore " + ENV['IOS_APP_ID'],
+      build_configurations: ENV['CONFIGURATION'],
+      code_sign_identity: "iPhone Distribution"
     )
 
     build_app(
