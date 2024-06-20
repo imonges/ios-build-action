@@ -82,7 +82,8 @@ platform :ios do
       automatic_release: true,
       skip_metadata: true,
       skip_screenshots: true,
-      metadata_path: ENV["METADATA_PATH"]
+      metadata_path: ENV["METADATA_PATH"],
+      precheck_include_in_app_purchases: false
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
