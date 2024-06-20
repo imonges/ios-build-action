@@ -76,6 +76,8 @@ platform :ios do
       } : nil
     )
 
+    upload_to_app_store
+
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
       upload_to_browserstack_app_live(
         browserstack_username: ENV["BROWSERSTACK_USERNAME"],
