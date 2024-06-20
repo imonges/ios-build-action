@@ -56,7 +56,8 @@ platform :ios do
     update_code_signing_settings(
       profile_name: "match AppStore " + ENV['IOS_APP_ID'],
       build_configurations: ENV['CONFIGURATION'],
-      code_sign_identity: "iPhone Distribution"
+      code_sign_identity: "iPhone Distribution",
+      path: ENV['PROJECT_PATH']
     )
 
     build_app(
