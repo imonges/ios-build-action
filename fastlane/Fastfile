@@ -50,12 +50,12 @@ platform :ios do
       teamid: ENV['TEAM_ID']
     )
 
-    update_project_provisioning(
-      xcodeproj: ENV['PROJECT_PATH'],
-      profile: ENV['sigh_' + ENV['IOS_APP_ID'] + '_' + ENV['MATCH_BUILD_TYPE'] + '_profile-path'],
-      build_configuration: ENV['CONFIGURATION'],
-      code_signing_identity: 'asdasd'
-    )
+    # update_project_provisioning(
+    #   xcodeproj: ENV['PROJECT_PATH'],
+    #   profile: ENV['sigh_' + ENV['IOS_APP_ID'] + '_' + ENV['MATCH_BUILD_TYPE'] + '_profile-path'],
+    #   build_configuration: ENV['CONFIGURATION'],
+    #   code_signing_identity: 'asdasd'
+    # )
 
     build_app(
       workspace: use_workspace ? ENV['WORKSPACE_PATH'] : nil,
